@@ -63,19 +63,19 @@ implementation "androidx.compose.ui:ui-tooling:$compose_version"
 <table>
 <tr>
 <td>
-  <img src="https://github.com/siba-x-prasad/ComposePlayground/blob/master/screenshots/ss1.png" width="150" height="300" />
+  <img src="https://github.com/siba-x-prasad/ComposePlayground/blob/main/screenshots/ss1.png" width="150" height="300" />
  </td>
 <td>
- <img src="https://github.com/siba-x-prasad/ComposePlayground/blob/master/screenshots/ss2.png" width="150" height="300" /> 
+ <img src="https://github.com/siba-x-prasad/ComposePlayground/blob/main/screenshots/ss2.png" width="150" height="300" /> 
 </td>
   <td>
-  <img src="https://github.com/siba-x-prasad/ComposePlayground/blob/master/screenshots/ss3.png" width="150" height="300" />
+  <img src="https://github.com/siba-x-prasad/ComposePlayground/blob/main/screenshots/ss3.png" width="150" height="300" />
  </td>
    <td>
-  <img src="https://github.com/siba-x-prasad/ComposePlayground/blob/master/screenshots/ss4.png" width="150" height="300" />
+  <img src="https://github.com/siba-x-prasad/ComposePlayground/blob/main/screenshots/ss4.png" width="150" height="300" />
  </td>
   <td>
-  <img src="https://github.com/siba-x-prasad/ComposePlayground/blob/master/screenshots/ss5.png" width="150" height="300" />
+  <img src="https://github.com/siba-x-prasad/ComposePlayground/blob/main/screenshots/ss5.png" width="150" height="300" />
  </td>
 </tr>
 </table>
