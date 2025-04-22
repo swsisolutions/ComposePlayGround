@@ -1,0 +1,12 @@
+# Important Links and Todo
+- https://developer.android.com/codelabs/jetpack-compose-navigation#0
+- https://learn.microsoft.com/en-us/dual-screen/android/jetpack/compose/two-pane-layout
+- Box Layout
+  - https://www.answertopia.com/jetpack-compose/how-to-use-box-layouts-in-jetpack-compose/
+- Constraint Layout
+  - https://developer.android.com/jetpack/compose/layouts/constraintlayout
+  - https://proandroiddev.com/getting-started-with-constraint-layout-in-jetpack-compose-48d4e02b76fd
+- Navigation Example
+  - https://vtsen.hashnode.dev/simple-jetpack-compose-navigation-example
+  - https://proandroiddev.com/bite-size-jetpack-compose-navigation-c010d3431ad2
+  - 
