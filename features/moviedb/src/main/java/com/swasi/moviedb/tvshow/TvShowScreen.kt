@@ -1,7 +1,6 @@
 package com.swasi.moviedb.tvshow
 
 import android.util.Log
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -15,32 +14,30 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.TopAppBar
-import com.swasi.moviedb.theme.MovieComposeTheme
-import com.swasi.ui.components.AppButton
-import com.swasi.ui.components.AppText
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import coil.compose.rememberAsyncImagePainter
+import com.skydoves.landscapist.CircularReveal
+import com.skydoves.landscapist.glide.GlideImage
 import com.swasi.domain.moviedb.ItemResult
 import com.swasi.moviedb.R
-import swasi.android.network.RestConfig
 import com.swasi.ui.components.ProgressIndicator
+import swasi.android.network.RestConfig
 
 /**
  * Created by Sibaprasad Mohanty on 11/03/2023.
@@ -91,7 +88,9 @@ fun TvShowScreen(viewModel: TvShowViewModel = hiltViewModel()) {
                             .padding(2.dp)
                     ) {
                         LazyColumn(
-                            modifier = Modifier.fillMaxHeight(),
+                            modifier = Modifier.fillMaxHeight().background(
+                                colorResource(com.swasi.ui.R.color.teal_200)
+                            ),
                             verticalArrangement = Arrangement.spacedBy(1.dp)
                         ) {
                             items(state.data) { fruit ->
@@ -127,16 +126,16 @@ fun TvShowItemRow(model: ItemResult) {
         modifier = Modifier
             .wrapContentHeight()
             .fillMaxWidth()
-//            .background(colorResource(id = R.color.col_063041))
             .padding(5.dp)
     ) {
         val imageUrl = RestConfig.BASE_IMAGE_URL + model.posterPath
         Log.i("Image Url", imageUrl)
-        Image(
-            painter = rememberAsyncImagePainter(imageUrl),
+        GlideImage(
+            imageModel = imageUrl,
             contentDescription = model.name,
-            placeholder = painterResource(R.drawable.banana),
             contentScale = ContentScale.Crop,
+            circularReveal = CircularReveal(5000),
+            error = ImageBitmap.imageResource(R.drawable.error),
             modifier = Modifier
                 .size(100.dp)
                 .padding(5.dp)

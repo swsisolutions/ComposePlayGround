@@ -1,7 +1,6 @@
 package com.swasi.moviedb.movies
 
 import android.util.Log
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -31,14 +30,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import coil.compose.rememberAsyncImagePainter
+import com.skydoves.landscapist.CircularReveal
+import com.skydoves.landscapist.glide.GlideImage
 import com.swasi.domain.moviedb.MovieData
-import com.swasi.ui.components.AppButton
+import com.swasi.moviedb.R
 import com.swasi.ui.components.ProgressIndicator
 import swasi.android.network.RestConfig
 
@@ -47,7 +50,6 @@ import swasi.android.network.RestConfig
  * siba.x.prasad@gmail.com
  */
 
-private val TAG = "MovieScreen"
 // https://stackoverflow.com/questions/68694031/jetpack-compose-passing-data-from-lazy-column-into-another-composable
 
 @OptIn(ExperimentalComposeUiApi::class, ExperimentalMaterial3Api::class)
@@ -60,9 +62,6 @@ fun MovieListScreen(
     var selectedMovieData by remember {
         mutableStateOf<MovieData?>(null)
     }
-
-    val nameState = remember { mutableStateOf("") }
-    val posterState = remember { mutableStateOf("") }
 
     LaunchedEffect(Unit, block = {
         viewModel.getPopularMovies()
@@ -79,13 +78,9 @@ fun MovieListScreen(
                         )
                     }
                 })
-        }
+        },
     ) {
-        Column() {
-            AppButton(
-                text = "Movie Details", modifier = Modifier.fillMaxWidth(),
-                onClick = { navigateToMovieDetails("Siba", "kjhkhkjhk") }
-            )
+        Column {
             when (val state = viewModel.movieListState.collectAsState().value) {
                 is MovieViewModel.State.Error -> {
                     Text(state.error, Modifier.fillMaxSize())
@@ -144,23 +139,23 @@ fun MovieItemRow(
         modifier = Modifier
             .wrapContentHeight()
             .fillMaxWidth()
-//            .background(colorResource(id = R.color.col_063041))
+            .background(colorResource(id = com.swasi.ui.R.color.teal_700))
             .padding(5.dp)
     ) {
         val imageUrl = RestConfig.BASE_IMAGE_URL + model.poster_path
         Log.i("Image Url", imageUrl)
-        Image(
-            painter = rememberAsyncImagePainter(imageUrl),
+        GlideImage(
+            imageModel = imageUrl,
             contentDescription = model.title,
             contentScale = ContentScale.Crop,
+            circularReveal = CircularReveal(3000),
+            error = ImageBitmap.imageResource(R.drawable.error),
             modifier = Modifier
                 .size(100.dp)
                 .padding(5.dp)
-                .clickable { onClick(model.title, model.poster_path) }
-//                .clickable(onClick = { onClick(model.title, model.poster_path) })
         )
         Text(
-            text = model.title!!,
+            text = model.title,
             fontSize = 24.sp,
             fontWeight = FontWeight.SemiBold,
             color = Color.White,

@@ -39,6 +39,7 @@ dependencies {
 
     implementation(libs.bundles.compose)
     implementation(libs.bundles.core)
+    implementation(libs.glide)
     implementation(libs.gson)
     implementation(libs.material)
     implementation(libs.hilt.android)
