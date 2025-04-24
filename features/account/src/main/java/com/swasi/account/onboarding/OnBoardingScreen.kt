@@ -35,7 +35,6 @@ fun OnBoardingScreen(
     onNavigateToSignIn: () -> Unit,
     onNavigateToSignUp: () -> Unit
 ) {
-    ComposePlaygroundTheme(darkTheme = false) {
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = Color.White
@@ -74,7 +73,6 @@ fun OnBoardingScreen(
                 }
             }
         }
-    }
 }
 
 @Preview

@@ -1,10 +1,10 @@
 package swasi.android.network
 
+import com.swasi.domain.moviedb.MovieResponse
+import com.swasi.domain.moviedb.PopularTvShowResponse
 import okhttp3.ResponseBody
 import retrofit2.http.GET
 import retrofit2.http.Query
-import swasi.android.model.MovieResponse
-import swasi.android.model.PopularTvShowResponse
 
 /**
  * Created by Sibaprasad Mohanty on 11/03/2023.

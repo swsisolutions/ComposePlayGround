@@ -15,30 +15,39 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Scaffold
-import androidx.compose.material.TopAppBar
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.TopAppBar
+import com.swasi.moviedb.theme.MovieComposeTheme
+import com.swasi.ui.components.AppButton
+import com.swasi.ui.components.AppText
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
-import swasi.android.model.ItemResult
+import com.swasi.domain.moviedb.ItemResult
+import com.swasi.moviedb.R
 import swasi.android.network.RestConfig
-import swasi.android.ui.components.ProgressIndicator
+import com.swasi.ui.components.ProgressIndicator
 
 /**
  * Created by Sibaprasad Mohanty on 11/03/2023.
  * siba.x.prasad@gmail.com
  */
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TvShowScreen(viewModel: TvShowViewModel = hiltViewModel()) {
     LaunchedEffect(Unit, block = {
@@ -126,6 +135,7 @@ fun TvShowItemRow(model: ItemResult) {
         Image(
             painter = rememberAsyncImagePainter(imageUrl),
             contentDescription = model.name,
+            placeholder = painterResource(R.drawable.banana),
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .size(100.dp)

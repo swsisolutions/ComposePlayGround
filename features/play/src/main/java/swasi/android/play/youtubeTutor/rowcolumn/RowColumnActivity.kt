@@ -16,8 +16,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import com.swasi.ui.theme.ComposePlaygroundTheme
 import swasi.android.play.youtubeTutor.modifiers.Greeting
-import swasi.android.ui.theme.ComposePlaygroundTheme
 
 class RowColumnActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

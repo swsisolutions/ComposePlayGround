@@ -84,5 +84,8 @@ fun SplashScreen(
 @Preview
 @Composable
 fun SplashScreenPreview() {
-    SplashScreen(SplashViewModel())
+    SplashScreen(
+        SplashViewModel(),
+        onNavigateToOnBoarding = {}
+    )
 }

@@ -7,8 +7,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Scaffold
-import androidx.compose.material.TopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,11 +21,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
-import swasi.android.model.MovieData
+import com.google.gson.Gson
+import com.swasi.domain.moviedb.MovieData
+import com.swasi.ui.components.AppButton
+import com.swasi.ui.components.AppText
+import com.swasi.ui.theme.ComposePlaygroundTheme
 import swasi.android.network.RestConfig
-import swasi.android.ui.components.AppButton
-import swasi.android.ui.components.AppText
-import swasi.android.ui.theme.ComposePlaygroundTheme
 
 
 /**
@@ -32,15 +34,16 @@ import swasi.android.ui.theme.ComposePlaygroundTheme
  * siba.x.prasad@gmail.com
  */
 
-@OptIn(ExperimentalComposeUiApi::class)
+@OptIn(ExperimentalComposeUiApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun MovieDetailsScreen(
-    selectedMovie: MovieData? = null,
-    name: String?,
-    posterImage: String?,
+    movieDataInJson: String,
     popBackStack: () -> Unit,
     popUpToLogin: () -> Unit
 ) {
+
+    val selectedMovie = Gson().fromJson(movieDataInJson, MovieData::class.java)
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -80,16 +83,16 @@ fun MovieDetailsScreen(
                             onClick = popUpToLogin
                         )
                         val imageUrl =
-                            RestConfig.BASE_IMAGE_URL + posterImage// selectedMovie?.poster_path
+                            RestConfig.BASE_IMAGE_URL + selectedMovie?.poster_path// selectedMovie?.poster_path
                         Image(
                             painter = rememberAsyncImagePainter(imageUrl),
-                            contentDescription = name,
+                            contentDescription = selectedMovie?.title ?: "No Title Found",
                             contentScale = ContentScale.Crop,
                             modifier = Modifier
                                 .fillMaxSize(0.5F)
                         )
                         AppText(
-                            text = name!!,
+                            text = selectedMovie?.title ?: "No Title Found",
                             size = 20.sp
                         )
                     }

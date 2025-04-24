@@ -11,26 +11,26 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Scaffold
-import androidx.compose.material.TopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import swasi.android.ui.components.AppButton
-import swasi.android.ui.theme.ComposePlaygroundTheme
+import com.swasi.moviedb.theme.MovieComposeTheme
+import com.swasi.ui.components.AppButton
 
 /**
  * Created by Sibaprasad Mohanty on 11/03/2023.
  * siba.x.prasad@gmail.com
  */
 
-@OptIn(ExperimentalComposeUiApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MovieHomeScreen(
     viewModel: MovieHomeViewModel = hiltViewModel(),
@@ -53,7 +53,7 @@ fun MovieHomeScreen(
         },
         content = {
 
-            ComposePlaygroundTheme(darkTheme = false) {
+            MovieComposeTheme(darkTheme = false) {
                 Surface(
                     modifier = Modifier
                         .fillMaxSize()
@@ -91,7 +91,8 @@ fun MovieHomeScreen(
                                     .height(50.dp)
                                     .weight(1f)
                             )
-                            AppButton(text = "Movie List",
+                            AppButton(
+                                text = "Movie List",
                                 modifier = Modifier
                                     .border(
                                         width = 0.dp,

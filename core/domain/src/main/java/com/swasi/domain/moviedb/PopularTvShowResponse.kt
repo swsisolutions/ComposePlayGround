@@ -2,7 +2,7 @@ package com.swasi.domain.moviedb
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 const val BASE_IMAGE_URL = "http://image.tmdb.org/t/p/w500"
 

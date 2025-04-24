@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.hilt)
     id("com.google.devtools.ksp")
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
@@ -10,7 +11,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        minSdk = 24
+        minSdk = 26
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -38,6 +39,7 @@ dependencies {
 
     implementation(libs.bundles.compose)
     implementation(libs.bundles.core)
+    implementation(libs.gson)
     implementation(libs.material)
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
@@ -49,4 +51,5 @@ dependencies {
 
     implementation(project(mapOf("path" to ":core:ui")))
     implementation(project(mapOf("path" to ":core:network")))
+    implementation(project(mapOf("path" to ":core:domain")))
 }

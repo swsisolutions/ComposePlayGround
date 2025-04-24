@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.swasi.composeplayground"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -68,7 +68,7 @@ dependencies {
 
     implementation(project(mapOf("path" to ":core:ui")))
     implementation(project(mapOf("path" to ":core:domain")))
-    implementation(project(mapOf("path" to ":core:common")))
+//    implementation(project(mapOf("path" to ":core:common")))
     implementation(project(mapOf("path" to ":features:account")))
     implementation(project(mapOf("path" to ":features:moviedb")))
     implementation(project(mapOf("path" to ":features:play")))

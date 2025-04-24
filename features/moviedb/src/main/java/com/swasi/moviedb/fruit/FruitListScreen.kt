@@ -15,8 +15,12 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Scaffold
-import androidx.compose.material.TopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.TopAppBar
+import com.swasi.moviedb.theme.MovieComposeTheme
+import com.swasi.ui.components.AppButton
+import com.swasi.ui.components.AppText
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -34,7 +38,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.google.gson.Gson
 import com.swasi.moviedb.state.UiState
-import swasi.android.ui.components.ProgressIndicator
+import com.swasi.ui.components.ProgressIndicator
 
 /**
  * Created by Sibaprasad Mohanty on 14/03/2023.
@@ -42,6 +46,7 @@ import swasi.android.ui.components.ProgressIndicator
  */
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FruitListScreen(
     viewModel: FruitListViewModel = hiltViewModel(),

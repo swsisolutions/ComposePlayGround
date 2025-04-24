@@ -18,7 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import swasi.android.ui.components.AppButton
+import com.swasi.ui.components.AppButton
 import kotlin.random.Random
 
 class StateManagementActivity : ComponentActivity() {
