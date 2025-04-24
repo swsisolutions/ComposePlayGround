@@ -1,4 +1,4 @@
-package swasi.android.play.sideeffect.rememberUpdatedState
+package com.swasi.sideeffect.rememberUpdatedState
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -102,7 +102,7 @@ fun TwoButtonScreen() {
 
 @Preview
 @Composable
-fun rememberUpdatedStatePreview() {
+fun RememberUpdatedStatePreview() {
     TwoButtonScreen()
 }
 

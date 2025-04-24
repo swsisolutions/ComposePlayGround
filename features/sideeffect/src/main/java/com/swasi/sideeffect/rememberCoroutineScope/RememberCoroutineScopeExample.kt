@@ -1,4 +1,4 @@
-package swasi.android.play.sideeffect.rememberCoroutineScope
+package com.swasi.sideeffect.rememberCoroutineScope
 
 import android.util.Log
 import androidx.compose.animation.core.FastOutSlowInEasing
@@ -73,7 +73,7 @@ fun SuccessIcon(
 }
 
 @Composable
-fun Coroutines() {
+fun RememberCoroutineScopeExample() {
     var onCancelPressed by remember {
         mutableStateOf(false)
     }
@@ -184,7 +184,6 @@ fun Coroutines() {
             }
         }
     }
-
 }
 
 
@@ -315,5 +314,5 @@ fun LaunchedEffectCoroutines() {
 @Preview
 @Composable
 fun RememberCoroutineScopeExamplePreview() {
-    Coroutines()
+    RememberCoroutineScopeExample()
 }
