@@ -44,6 +44,9 @@ import kotlinx.coroutines.launch
 
 val logTag = "Coroutines"
 
+/**
+ * rememberCoroutineScope: obtain a composition-aware scope to launch a coroutine outside a composable
+ */
 @Composable
 fun CancelledIcon(
     modifier: Modifier = Modifier,
