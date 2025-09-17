@@ -21,6 +21,7 @@
             <option value="$PROJECT_DIR$/features/moviedb" />
             <option value="$PROJECT_DIR$/features/play" />
             <option value="$PROJECT_DIR$/features/sideeffect" />
+            <option value="$PROJECT_DIR$/swsiuikit" />
           </set>
         </option>
       </GradleProjectSettings>
